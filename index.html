@@ -844,7 +844,7 @@ let state = {
 // ── INIT ───────────────────────────────────────────────
 function init() {
   try {
-    const s = JSON.parse(sessionStorage.getItem('nexus') || 'null');
+    const s = JSON.parse(localStorage.getItem('nexus') || 'null');
     if (s) {
       state.projects = s.projects || state.projects;
       state.keys = s.keys || state.keys;
@@ -865,7 +865,7 @@ function init() {
 }
 
 function persist() {
-  try { sessionStorage.setItem('nexus', JSON.stringify({ projects: state.projects, keys: state.keys, activeProjectId: state.activeProjectId })); } catch(e) {}
+  try { localStorage.setItem('nexus', JSON.stringify({ projects: state.projects, keys: state.keys, activeProjectId: state.activeProjectId })); } catch(e) {}
 }
 
 // ── NAVIGATION ─────────────────────────────────────────
